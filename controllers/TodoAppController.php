@@ -55,27 +55,13 @@ class TodoAppController extends Controller
         // $searchModel = new TodoAppSearch();
         $userId = Yii::$app->user->identity->id;
         $dataProvider = new ActiveDataProvider([
-            'query' => TodoApp::find()->where(['user_id' => $userId])->all()
+            'query' => TodoApp::find()->where(['user_id' => $userId])
         ]); 
         
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
     }
-
-    // public function actionIndex()
-    // {
-    //     $model = TodoApp::find()->asArray()->all();
-    //     $searchModel = new TodoAppSearch();
-    //     $dataProvider = $searchModel->search($this->request->queryParams);
-
-        
-    //     return $this->render('index', [
-    //                 'searchModel' => $searchModel,
-    //                 'dataProvider' => $dataProvider,
-    //                 'model' => $model
-    //             ]);
-    // }
 
     /**
      * Displays a single TodoApp model.
